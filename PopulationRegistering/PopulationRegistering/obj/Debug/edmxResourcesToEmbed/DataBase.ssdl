@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PopulationRegisterModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Accommodation">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="street" Type="text" Nullable="false" />
+    <Property Name="buildingNumber" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="flatNumber" Type="int" Nullable="false" />
+    <Property Name="city" Type="text" Nullable="false" />
+    <Property Name="postCode" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="country" Type="text" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Births">
+    <Key>
+      <PropertyRef Name="pesel" />
+    </Key>
+    <Property Name="pesel" Type="numeric" Precision="11" Scale="0" Nullable="false" />
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="date" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Deaths">
+    <Key>
+      <PropertyRef Name="pesel" />
+    </Key>
+    <Property Name="pesel" Type="numeric" Precision="11" Scale="0" Nullable="false" />
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="date" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Marriages">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="pesel" Type="numeric" Precision="11" Scale="0" Nullable="false" />
+    <Property Name="pesel2" Type="numeric" Precision="11" Scale="0" Nullable="false" />
+    <Property Name="date" Type="date" Nullable="false" />
+    <Property Name="anulled" Type="date" />
+    <Property Name="description" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Person">
+    <Key>
+      <PropertyRef Name="pesel" />
+    </Key>
+    <Property Name="pesel" Type="numeric" Precision="11" Scale="0" Nullable="false" />
+    <Property Name="firstName" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="middleName" Type="varchar" MaxLength="50" />
+    <Property Name="lastName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="dateOfBirth" Type="date" Nullable="false" />
+    <Property Name="sex" Type="bit" Nullable="false" />
+    <Property Name="permanentAddress_ID" Type="int" Nullable="false" />
+    <Property Name="temporaryAddress_ID" Type="int" Nullable="false" />
+    <Property Name="isDead" Type="bit" />
+  </EntityType>
+  <Association Name="FK_Births_Person">
+    <End Role="Person" Type="Self.Person" Multiplicity="1" />
+    <End Role="Births" Type="Self.Births" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="pesel" />
+      </Principal>
+      <Dependent Role="Births">
+        <PropertyRef Name="pesel" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Deaths_Person">
+    <End Role="Person" Type="Self.Person" Multiplicity="1" />
+    <End Role="Deaths" Type="Self.Deaths" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="pesel" />
+      </Principal>
+      <Dependent Role="Deaths">
+        <PropertyRef Name="pesel" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Marriages_Person">
+    <End Role="Person" Type="Self.Person" Multiplicity="1" />
+    <End Role="Marriages" Type="Self.Marriages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="pesel" />
+      </Principal>
+      <Dependent Role="Marriages">
+        <PropertyRef Name="pesel" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Marriages_Person1">
+    <End Role="Person" Type="Self.Person" Multiplicity="1" />
+    <End Role="Marriages" Type="Self.Marriages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="pesel" />
+      </Principal>
+      <Dependent Role="Marriages">
+        <PropertyRef Name="pesel2" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Person_Accommodation">
+    <End Role="Accommodation" Type="Self.Accommodation" Multiplicity="1" />
+    <End Role="Person" Type="Self.Person" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Accommodation">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Person">
+        <PropertyRef Name="permanentAddress_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Person_Accommodation1">
+    <End Role="Accommodation" Type="Self.Accommodation" Multiplicity="1" />
+    <End Role="Person" Type="Self.Person" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Accommodation">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Person">
+        <PropertyRef Name="temporaryAddress_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PopulationRegisterModelStoreContainer">
+    <EntitySet Name="Accommodation" EntityType="Self.Accommodation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Births" EntityType="Self.Births" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Deaths" EntityType="Self.Deaths" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Marriages" EntityType="Self.Marriages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Person" EntityType="Self.Person" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Births_Person" Association="Self.FK_Births_Person">
+      <End Role="Person" EntitySet="Person" />
+      <End Role="Births" EntitySet="Births" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Deaths_Person" Association="Self.FK_Deaths_Person">
+      <End Role="Person" EntitySet="Person" />
+      <End Role="Deaths" EntitySet="Deaths" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Marriages_Person" Association="Self.FK_Marriages_Person">
+      <End Role="Person" EntitySet="Person" />
+      <End Role="Marriages" EntitySet="Marriages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Marriages_Person1" Association="Self.FK_Marriages_Person1">
+      <End Role="Person" EntitySet="Person" />
+      <End Role="Marriages" EntitySet="Marriages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Person_Accommodation" Association="Self.FK_Person_Accommodation">
+      <End Role="Accommodation" EntitySet="Accommodation" />
+      <End Role="Person" EntitySet="Person" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Person_Accommodation1" Association="Self.FK_Person_Accommodation1">
+      <End Role="Accommodation" EntitySet="Accommodation" />
+      <End Role="Person" EntitySet="Person" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

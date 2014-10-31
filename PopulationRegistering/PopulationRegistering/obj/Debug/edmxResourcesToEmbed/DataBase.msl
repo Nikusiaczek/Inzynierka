@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PopulationRegisterModelStoreContainer" CdmEntityContainer="PopulationRegisterEntities2">
+    <EntitySetMapping Name="Accommodation">
+      <EntityTypeMapping TypeName="PopulationRegisterModel.Accommodation">
+        <MappingFragment StoreEntitySet="Accommodation">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="street" ColumnName="street" />
+          <ScalarProperty Name="buildingNumber" ColumnName="buildingNumber" />
+          <ScalarProperty Name="flatNumber" ColumnName="flatNumber" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="postCode" ColumnName="postCode" />
+          <ScalarProperty Name="country" ColumnName="country" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Births">
+      <EntityTypeMapping TypeName="PopulationRegisterModel.Births">
+        <MappingFragment StoreEntitySet="Births">
+          <ScalarProperty Name="pesel" ColumnName="pesel" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="date" ColumnName="date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Deaths">
+      <EntityTypeMapping TypeName="PopulationRegisterModel.Deaths">
+        <MappingFragment StoreEntitySet="Deaths">
+          <ScalarProperty Name="pesel" ColumnName="pesel" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="date" ColumnName="date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Marriages">
+      <EntityTypeMapping TypeName="PopulationRegisterModel.Marriages">
+        <MappingFragment StoreEntitySet="Marriages">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="pesel" ColumnName="pesel" />
+          <ScalarProperty Name="pesel2" ColumnName="pesel2" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="anulled" ColumnName="anulled" />
+          <ScalarProperty Name="description" ColumnName="description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Person">
+      <EntityTypeMapping TypeName="PopulationRegisterModel.Person">
+        <MappingFragment StoreEntitySet="Person">
+          <ScalarProperty Name="pesel" ColumnName="pesel" />
+          <ScalarProperty Name="firstName" ColumnName="firstName" />
+          <ScalarProperty Name="middleName" ColumnName="middleName" />
+          <ScalarProperty Name="lastName" ColumnName="lastName" />
+          <ScalarProperty Name="dateOfBirth" ColumnName="dateOfBirth" />
+          <ScalarProperty Name="sex" ColumnName="sex" />
+          <ScalarProperty Name="permanentAddress_ID" ColumnName="permanentAddress_ID" />
+          <ScalarProperty Name="temporaryAddress_ID" ColumnName="temporaryAddress_ID" />
+          <ScalarProperty Name="isDead" ColumnName="isDead" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

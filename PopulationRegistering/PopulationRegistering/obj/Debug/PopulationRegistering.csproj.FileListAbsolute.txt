@@ -1,0 +1,17 @@
+D:\Projekty Visual\PopulationRegistering\PopulationRegistering\bin\Debug\PopulationRegistering.exe.config
+D:\Projekty Visual\PopulationRegistering\PopulationRegistering\obj\Debug\PopulationRegistering.csprojResolveAssemblyReference.cache
+D:\Projekty Visual\PopulationRegistering\PopulationRegistering\obj\Debug\MainWindow.baml
+D:\Projekty Visual\PopulationRegistering\PopulationRegistering\obj\Debug\MainWindow.g.cs
+D:\Projekty Visual\PopulationRegistering\PopulationRegistering\obj\Debug\App.g.cs
+D:\Projekty Visual\PopulationRegistering\PopulationRegistering\obj\Debug\PopulationRegistering_MarkupCompile.cache
+D:\Projekty Visual\PopulationRegistering\PopulationRegistering\obj\Debug\PopulationRegistering.g.resources
+D:\Projekty Visual\PopulationRegistering\PopulationRegistering\obj\Debug\PopulationRegistering.Properties.Resources.resources
+D:\Projekty Visual\PopulationRegistering\PopulationRegistering\obj\Debug\PopulationRegistering.csproj.GenerateResource.Cache
+D:\Projekty Visual\PopulationRegistering\PopulationRegistering\bin\Debug\PopulationRegistering.exe
+D:\Projekty Visual\PopulationRegistering\PopulationRegistering\bin\Debug\PopulationRegistering.pdb
+D:\Projekty Visual\PopulationRegistering\PopulationRegistering\bin\Debug\EntityFramework.dll
+D:\Projekty Visual\PopulationRegistering\PopulationRegistering\bin\Debug\EntityFramework.SqlServer.dll
+D:\Projekty Visual\PopulationRegistering\PopulationRegistering\bin\Debug\EntityFramework.xml
+D:\Projekty Visual\PopulationRegistering\PopulationRegistering\bin\Debug\EntityFramework.SqlServer.xml
+D:\Projekty Visual\PopulationRegistering\PopulationRegistering\obj\Debug\PopulationRegistering.exe
+D:\Projekty Visual\PopulationRegistering\PopulationRegistering\obj\Debug\PopulationRegistering.pdb
